@@ -1,0 +1,69 @@
+SQL DRILLS
+
+01-Cartesian Joins
+Part1 - What will be the number of rows in the output of the following query?
+
+250 rows will be the output - 25 counts from table 1 will be multiplied by 10 counts from table 2 
+
+Part2 - Result of SELECT * FROM table_one, table_two; will be:
+
+	Table1 id	Table2id
+	1		10
+	1		11
+	1		12
+	2		10
+	2		11
+	2		12
+	3		10
+	3		11
+	3		12
+	4		10
+	4		11
+	4		12
+
+02-Foreign Keys
+
+employees_table
+--
+employee_id int as primary key
+dept_id int as foreign key - dept_table
+first_name as varchar(15)
+last_name as varchar(15)
+
+
+dept_table
+--
+dept_id int as primary key
+dept_name as varchar(15)
+
+
+03) - ACID
+
+Atomicity - a transaction, which pertains to a single logical unit of work that accesses and possibly modifies a database contents, takes place at once or not at all. The "Abort" and "Commit" transactions are the two operations that reflect atomicity.
+
+Consistency - integrity constraints must be maintained to ensure database consistency before and after a transaction.  Thus, multiple transactions can concurrently occur independently.
+ 
+Isolation - Multiple transactions can occur concurrently without resulting in inconsistencies in the database.
+
+Durability - Once the transaction is committed, changes and updates to the database are stored and written to memory, hence ensuring that these persist.
+
+
+04)- CASE
+
+select id, animal_name, 
+case 	when animal_name like "%Mouse" then "mouse"
+	when animal_name like "%Duck" then "duck"
+end as species
+from animal_table;
+
+
+05) - Index
+
+These are special lookup tables that can be used to speed up data retrieval (select queries). With data input such as Update and Insert statements, indexes slow these down. There are two kinds of indexes: clustered and non-clustered.
+1. Clustered indexes 
+When a primary key is created with a table, a corresponding clustered index based on the columns included in the primary key is also created.
+
+2. Non-clustered Indexes 
+Unliked clustered indexes, non-clustered indexes store and sort data separately from the data rows in the table.
+
+
